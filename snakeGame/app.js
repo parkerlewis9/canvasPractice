@@ -25,7 +25,8 @@ $(document).ready(function(){
 		d = "right"; //default direction
 		create_snake();
 		create_food(); //Now we can see the food particle
-		createObstacles()
+		create_block();
+		// createObstacles()
 		//finally lets display the score
 		score = 0;
 		eatenRainbow = false;
@@ -71,22 +72,54 @@ $(document).ready(function(){
 
 
 
-	function create_block(i)
+	function create_block()
 	{
-		block[i] = {
+		block1 = {
 			x: Math.round(Math.random()*(w-cw)/cw), 
 			y: Math.round(Math.random()*(h-cw)/cw), 
 		};
 
-		// block2 = {
-		// 	x: Math.round(Math.random()*(w-cw)/cw), 
-		// 	y: Math.round(Math.random()*(h-cw)/cw), 
-		// };
+		block2 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
 
-		// block3 = {
-		// 	x: Math.round(Math.random()*(w-cw)/cw), 
-		// 	y: Math.round(Math.random()*(h-cw)/cw), 
-		// };
+		block3 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
+
+		block4 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
+
+		block5 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
+
+		block6 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
+
+		block7 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
+		block8 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
+		block9 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
+		block10 = {
+			x: Math.round(Math.random()*(w-cw)/cw), 
+			y: Math.round(Math.random()*(h-cw)/cw), 
+		};
 		//This will create a cell with x/y between 0-44
 		//Because there are 45(450/10) positions accross the rows and columns
 	}
@@ -96,7 +129,7 @@ $(document).ready(function(){
 	{
 
 
-		blocks = [];
+		// blocks = [];
 		//Creating Blocks
 
 
@@ -157,7 +190,8 @@ $(document).ready(function(){
 				foodEaten = 0;
 				eatenRainbow = false;
 				eatenSolid = false;
-				createObstacles()
+				create_block();
+				// createObstacles()
 			} 
 		} else {
 			var tail = snake_array.pop(); //pops out the last cell
@@ -180,15 +214,30 @@ $(document).ready(function(){
 			paint_random(food2.x, food2.y);
 		} else if (foodEaten === 1 && eatenSolid) {
 			paint_random(food2.x, food2.y);
-			console.log("goodbye")
+			// console.log("goodbye")
 		} else if (foodEaten === 1 && eatenRainbow) {
 			paint_cell(food.x, food.y);
-			console.log("hello")
+			// console.log("hello")
 		}
 	
-		// paint_black(block1.x,block1.y)
-		// paint_black(block2.x,block2.y)
-		// paint_black(block3.x,block3.y)
+		paint_black(block1.x,block1.y)
+		paint_black(block2.x,block2.y)
+		paint_black(block3.x,block3.y)
+		paint_black(block4.x,block4.y)
+		paint_black(block5.x,block5.y)
+		paint_black(block6.x,block6.y)
+		paint_black(block7.x,block7.y)
+		paint_black(block8.x,block8.y)
+		paint_black(block9.x,block9.y)
+		paint_black(block10.x,block10.y)
+
+		if(nx == block1.x && ny == block1.y || ny == block2.y && nx == block2.x|| ny == block3.y && nx == block3.x || ny == block4.y && nx == block4.x || ny == block5.y && nx == block5.x || ny == block6.y && nx == block6.x || ny == block7.y && nx == block7.x || ny == block8.y && nx == block8.x || ny == block9.y && nx == block9.x || ny == block10.y && nx == block10.x)
+		{
+			//restart game
+			init();
+			//Lets organize the code a bit now.
+			return;
+		}
 		//Lets paint the score
 		var score_text = "Score: " + score;
 		ctx.fillText(score_text, 5, h-5);
@@ -236,15 +285,15 @@ $(document).ready(function(){
 		return false;
 	}
 
-	function createObstacles(){
-		// for (var i = 0; i < 20; i++) {
-			// console.log(i);
-			// console.log(blocks)
-			create_block(1)
-			console.log(1 + ": " + block[1].x)
-			paint_cell(block[1].x,block[1].y)
-		// }
-	}
+	// function createObstacles(){
+	// 	// for (var i = 0; i < 20; i++) {
+	// 		// console.log(i);
+	// 		// console.log(blocks)
+	// 		create_block(1)
+	// 		console.log(1 + ": " + block[1].x)
+	// 		paint_cell(block[1].x,block[1].y)
+	// 	// }
+	// }
 	
 	//Lets add the keyboard controls now
 	$(document).keydown(function(e){
