@@ -10,6 +10,7 @@ window.onload = function() {
 	
 //Animation Interval
 	blueCirclePosition();
+	greenTriangePosition();
 	window.setInterval(function() {
 		c.fillStyle = "black";
 		c.fillRect(0,0,canvas.width, canvas.height);
@@ -72,6 +73,7 @@ window.onload = function() {
 		}
 		
 		paintBlueCircle(bposition.x,bposition.y)
+		paintGreenTriangle(gposition.x,gposition.y)
 
 	}, 10)
 
@@ -111,15 +113,35 @@ window.onload = function() {
 
 	function greenTriangePosition() {
 		gposition = {
-			x: 700,
-			y: 700,
+			x: 600,
+			y: 600,
 			color: "green"
 		}
 	}
 
-	function paintGreenTriangle() {
-		
+	function paintGreenTriangle(x,y) {
+		c.strokeStyle = gposition.color;
+		c.lineWidth = 3;
+		c.beginPath();
+		c.moveTo(x,y);
+		c.lineTo(x, y + 100);
+		c.lineTo(x + 100, y + 100);
+		c.closePath();
+		c.stroke();
 	}
+
+	document.addEventListener("keydown", function(e) {
+		if(e.which === 38) {
+			gposition.y-= 10;
+		} else if(e.which === 37) {
+			gposition.x -= 10;
+		} else if (e.which === 40) {
+			gposition.y += 10;
+		} else if (e.which === 39) {
+			gposition.x += 10
+		}
+		console.dir(e)
+	})
 
 
 
