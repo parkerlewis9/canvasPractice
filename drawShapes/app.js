@@ -22,22 +22,22 @@ window.onload = function() {
 
 
 
-	//Cheat Sheet
-		//Make Circle
-		c.fillStyle = "white";
-		c.beginPath();
-		c.arc(50,50, 40, 0, Math.PI*2);
-		c.fill();
+	// //Cheat Sheet
+	// 	//Make Circle
+	// 	c.fillStyle = "white";
+	// 	c.beginPath();
+	// 	c.arc(50,50, 40, 0, Math.PI*2);
+	// 	c.fill();
 
 
-		//Make Triangle
+	// 	//Make Triangle
 
-		c.strokeStyle = "red";
-		c.lineWidth = 5;
-		c.beginPath();
-		c.moveTo(100, 100);
-		c.lineTo(100, 300);
-		c.lineTo(300, 300);
-		c.closePath();
-		c.stroke();
+	// 	c.strokeStyle = "red";
+	// 	c.lineWidth = 5;
+	// 	c.beginPath();
+	// 	c.moveTo(100, 100);
+	// 	c.lineTo(100, 300);
+	// 	c.lineTo(300, 300);
+	// 	c.closePath();
+	// 	c.stroke();
 }	

@@ -81,6 +81,13 @@ window.onload = function() {
 		dragging = false;
 	};
 
+
+	var button = document.getElementById("button");
+	button.addEventListener("click", function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		saveDrawingSurface();
+
+	})
 	//Initialization
 	context.strokeStyle = "black"
 }
